@@ -1,0 +1,89 @@
+(1) Run the easy installer
+curl https://pyenv.run | bash
+
+(2) Add pyenv to .bashrc:
+Edit the .bashrc with the command
+    sudo nano ~/.bashrc
+
+(3) Add the following three lines to the botton of the .bashrc file:
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv virtualenv-init -)"
+
+(4) Restart the terminal
+exec $SHELL
+
+(4) Install system packages
+sudo apt-get install --yes libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libgdbm-dev lzma lzma-dev tcl-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev wget make openssl
+
+(5) Update pyenv
+pyenv update
+
+(6) Install python versions
+pyenv install --list
+pyenv install ~~Your python version~~
+
+(7) Set python verion
+mkdir project
+cd project
+pyenv local ~~Your python version~~
+
+------------------------------------------------------------------------------
+
+ 9:30 Install TensorFlow
+
+mkdir project
+cd project
+
+python3 -m pip install virtualenv
+python3 -m virtualenv env
+source env/bin/activate
+
+sudo apt-get install -y libhdf5-dev libc-ares-dev libeigen3-dev gcc gfortran libgfortran5 libatlas3-base libatlas-base-dev libopenblas-dev libopenblas-base libblas-dev liblapack-dev cython3 libatlas-base-dev openmpi-bin libopenmpi-dev python3-dev build-essential cmake pkg-config libjpeg-dev libtiff5-dev libpng-dev libavcodec-dev libavformat-dev libswscale-dev libv4l-dev libxvidcore-dev libx264-dev libfontconfig1-dev libcairo2-dev libgdk-pixbuf2.0-dev libpango1.0-dev libgtk2.0-dev libgtk-3-dev libhdf5-serial-dev libhdf5-103 libqt5gui5 libqt5webkit5 libqt5test5 python3-pyqt5
+
+python3 -m pip install -U wheel mock six
+
+Select the .whl from https://github.com/PINTO0309/Tensorfl...
+Select "view raw" then copy the URL
+Run:
+wget [Raw file URL]
+sudo chmod +x [Raw file URL]
+./[Tensorflow file]
+sudo pip uninstall tensorflow
+python3 -m pip uninstall tensorflow
+python3 -m pip install  tensorflow-[Your version here].whl
+
+exec $SHELL
+
+source env/bin/activate
+
+python
+import tensorflow as tf
+tf.__version__
+quit()
+
+NOTE: If there's an hdf5 warning run this command:
+pip uninstall h5py
+HDF5_VERSION=[Desired version] pip install --no-binary=h5py h5py==3.1.0
+This is from: https://docs.h5py.org/en/stable/build... 
+
+--------------------------------------------------------------------------
+
+If you're on a Pi 3 I recommend following this tutorial up to step 17 and then returning to this video:   
+
+ • How to install OpenCV on Raspberry Pi...  
+
+python3 -m pip install opencv-python
+or 
+ pip install opencv-contrib-python (more libraries and customization)
+
+python3 -m pip install "picamera[array]"
+
+----------------------------------------------------------------------
+
+python
+import cv2
+import tensorflow as tf
+cv2.__version__
+tf.__version__
+

@@ -1,0 +1,12 @@
+train: /content/yolo_data/images/train
+val: /content/yolo_data/images/val
+
+nc: 4
+names: ['flooded_building', 'flooded_car', 'person', 'person_in_help']
+
+roboflow:
+  workspace: columbia-university-d9ggz
+  project: flood-object-detection-2olqp
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/columbia-university-d9ggz/flood-object-detection-2olqp/dataset/1
